@@ -8,7 +8,7 @@ echo "<table class='table-striped table-light'>"
             . "<theader>"
                 . "<th>CATÉGORIE</th>"
                 . "<th>MODULE</th>"
-                . "<th>NB JOURS</th>"
+                . "<th>LOL JOURS</th>"
             . "<theader>";
 
 while($programmeSession = $programmeSessions->fetch()){
@@ -21,3 +21,4 @@ $programmeSessions->closeCursor();
 
 
 echo "</table>";
+    
