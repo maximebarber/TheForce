@@ -1,0 +1,33 @@
+/* ADD STAGIAIRE */
+
+form#container {
+    max-width: 800px;
+    margin: 10% auto
+}
+
+/* ACCUEIL et SESSIONS DISPOIBLES (CARDS) */
+
+#cards {
+    display: flex;
+    justify-content: space-around;
+    margin: 5%;
+    flex-wrap: wrap;
+}
+
+#card {
+    background-color: rgba(54, 162, 235, 0.6);
+    margin: 15px;
+    flex-basis: 40%;
+    max-width: 400px;
+}
+
+#card:hover {
+    transform: scale(1.03);
+    transition: transform .6s;
+    background-color: rgba(54, 162, 235, 0.9);
+}
+
+#a-card {
+    text-decoration: none;
+    color: white;
+}
