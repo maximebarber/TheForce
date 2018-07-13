@@ -174,4 +174,5 @@ if(isset($_GET['action'])){
 else {
     require 'view/accueil.view.php';
     //Coucoulol
+    //Coucou2
 }
