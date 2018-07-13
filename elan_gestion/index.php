@@ -174,7 +174,5 @@ if(isset($_GET['action'])){
 else {
     require 'view/accueil.view.php';
 //modif
-    //deux ligne gggggdf
-    //deux lignegergegregregregergregregr
-    //lq troisieme est ici
+    //deux ligne
 }
