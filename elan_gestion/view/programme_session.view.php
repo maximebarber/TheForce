@@ -3,22 +3,28 @@
 //**
 // on affiche  MODULE - CATEGORIE  - NOMBRE DE JOURS
 //
+$intitule = $intitules->fetch();
+
+echo $intitule['intitule_session'];
 
 echo "<table class='table-striped table-light'>"
             . "<theader>"
                 . "<th>CATÉGORIE</th>"
                 . "<th>MODULE</th>"
-                . "<th>nb JOURS</th>"
+                . "<th>NOMBRE DE JOURS</th>"
             . "<theader>";
 
-while($programmeSession = $programmeSessions->fetch()){
-    echo "<tr><td>" .$programmeSession['nom_categorie']. "</td>"
-            . "<td>" .$programmeSession['nom_module']. "</td>"                      
-            . "<td>" .$programmeSession['duree_module']. "</td>"   
+while($module = $modules->fetch()){
+    echo "<tr><td>" .$module['nom_categorie']. "</td>"
+            . "<td>" .$module['nom_module']. "</td>"
+            . "<td>" .$module['duree_module']. "</td>"
       . "</tr>";
 }
-$programmeSessions->closeCursor();
+
+$modules->closeCursor();
+$intitules->closeCursor();
 
 
-echo "</table>";
-    
+echo "</table><br>";
+
+

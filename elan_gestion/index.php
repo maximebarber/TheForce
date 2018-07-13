@@ -9,7 +9,10 @@
 
 require_once 'controller/session.controller.php';
 require_once 'controller/stagiaire.controller.php';
+require_once 'controller/categorie.controller.php';
+require_once 'functions.php';
 
+//AFFICHAGE BARRE DE NAVIGATION
 require 'view/navbar.view.html';
 
 if(isset($_GET['action'])){
@@ -17,6 +20,8 @@ if(isset($_GET['action'])){
                 switch ($_GET['action']){
                     
                     case 'accueil': require 'view/accueil.view.php'; break;
+                    
+                    case 'TheForce': require 'view/TheForce.view.php'; break;
 
                     case 'sessions_disponibles': getSessions(); break;
                     
@@ -27,7 +32,7 @@ if(isset($_GET['action'])){
                         $idSession = $_GET['idSession'];
 
                         getProgrammeSession($idSession);
-                        
+
                         break;
                     
                     case 'fiche_stagiaire':
@@ -38,40 +43,129 @@ if(isset($_GET['action'])){
                         
                         break;
                     
-                    case 'add_stagiaire': require 'view/add_stagiaire.view.php'; break;
+                    case 'add_stagiaire': 
+                        
+                        if(!empty($_POST)){                            
+                            
+                            addStagiaire($_POST);  
+                            
+                        }
+                        
+                        else {
+                            
+                            addStagiaire();
+                            
+                        }
+                        
+                        var_dump($_POST);
+                        
+                        break;
                     
-                    case 'insert_stagiaire': 
+                    /*case 'insert_stagiaire': 
                         //@TODO insert into front controller
 
-                        if(isset($_POST['prenomStagiaire']) && isset($_POST['nomStagiaire']) && isset($_POST['sexeStagiaire']) && isset($_POST['naissanceStagiaire']) && isset($_POST['villeStagiaire']) && isset($_POST['emailStagiaire']) && isset($_POST['telephoneStagiaire'])){
-                            $p = $_POST['prenomStagiaire'];
-                            $nm = $_POST['nomStagiaire'];
-                            $s = $_POST['sexeStagiaire'];
-                            $n = $_POST['naissanceStagiaire'];
-                            $v = $_POST['villeStagiaire'];
-                            $e = $_POST['emailStagiaire'];
-                            $t = $_POST['telephoneStagiaire'];
+                        if(!empty($_POST['prenomStagiaire']) && !empty($_POST['nomStagiaire']) && !empty($_POST['sexeStagiaire']) && !empty($_POST['naissanceStagiaire']) && !empty($_POST['villeStagiaire']) && !empty($_POST['emailStagiaire']) && !empty($_POST['telephoneStagiaire'])){
+                            
+                            $p = e(ucfirst(strtolower($_POST['prenomStagiaire'])));
+                            $nm = e(ucfirst(strtolower($_POST['nomStagiaire'])));
+                            $s = e($_POST['sexeStagiaire']);
+                            $n = e($_POST['naissanceStagiaire']);
+                            $v = e(ucfirst(strtolower($_POST['villeStagiaire'])));
+                            $e = e($_POST['emailStagiaire']);
+                            $t = e($_POST['telephoneStagiaire']);
+                            
                             addStagiaire($p,$nm,$s,$n,$v,$e,$t);
                             
-                            break;
                         }
-                        
-                    case 'add_session': require 'view/add_session.view.php'; break;
-                    
-                    case 'insert_session': 
-                        //@TODO insert into front controller
-
-                        if(isset($_POST['intitule']) && isset($_POST['dateDebut']) && isset($_POST['dateFin']) && isset($_POST['nbPlaces']) && isset($_POST['img'])){
-                            $i = $_POST['intitule'];
-                            $dd = $_POST['dateDebut'];
-                            $df = $_POST['dateFin'];
-                            $nb = $_POST['nbPlaces'];
-                            $img = $_POST['img'];
-                            addSession($i,$dd,$df,$nb,$img);
                             
-                            break;
+                            break;*/                
+                    
+                    case 'add_session': 
+                        
+                        if(!empty($_POST)){
+                            
+                            //DEBUT AJOUT IMAGE BDD
+                            
+                            /*if(isset($_POST['submit'])){
+                                $file = $_FILES['img'];
+                                
+                                $fileName = $_FILES['img']['name'];
+                                $fileTmpName = $_FILES['img']['tmp_name'];
+                                $fileSize = $_FILES['img']['size'];
+                                $fileError = $_FILES['img']['error'];
+                                $fileType = $_FILES['img']['type'];
+                                
+                                $fileExt = explode('.', $fileName);
+                                $fileActualExt = strtolower(end($fileExt));
+                                
+                                $allowed = array('jpg', 'jpeg', 'png');
+                                
+                                if(in_array($fileActualExt, $allowed)){
+                                    if ($fileError === 0){
+                                        if($fileSize < 5000000){
+                                            $fileNameNew = uniqid('', true).".".$fileActualExt;
+                                            $fileDestination = 'IMG/'.$fileNameNew;
+                                            move_uploaded_file($fileTmpName, $fileDestination);
+                                        } else {
+                                            echo 'Image trop volumineuse.';
+                                        }
+                                    } else {
+                                        echo 'Erreur lors du téléchargement.';
+                                    }
+                                } else {
+                                    echo 'Fichier non supporté.';
+                                }
+                                
+                            }*/
+                            
+                            //FIN AJOUT IMAGE BDD    
+                            
+                                                        
+                            addSession($_POST);  
+                            
                         }
                         
+                        else {
+                            
+                            addSession();
+                            
+                        }
+                        
+                        var_dump($_POST);
+                        var_dump($_POST['intitule']);
+                        
+                        break;             
+                        
+                    case 'add_module':
+                        
+                        if(!empty($_POST)){
+                            addModule($_POST);  
+                        }
+                        else addModule();                         
+                        
+                        break;      
+                        
+                    case 'add_module_to_session':
+                        
+                        if(!empty($_POST)){
+                            addModuleToSession($_POST);  
+                        }
+                        else addModuleToSession();  
+                        
+                        var_dump($_POST);
+                        
+                        break;     
+                        
+                    case 'add_stagiaire_to_session':
+                        
+                        if(!empty($_POST)){
+                            addStagiaireToSession($_POST);  
+                        }
+                        else addStagiaireToSession();  
+                        
+                        var_dump($_POST);
+                        
+                        break;      
                     
                     default: getSessions();
                         

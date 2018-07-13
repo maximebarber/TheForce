@@ -1,13 +1,35 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="index.php?action=accueil">ACCUEIL</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" href="index.php?action=sessions_disponibles">Sessions</a>
-      <a class="nav-item nav-link" href="index.php?action=liste_stagiaires">Stagiaires</a>
-      <a class="nav-item nav-link" href="index.php?action=add_stagiaire">Ajout Stagiaire</a>
+    <a class="navbar-brand" href="index.php?action=accueil">
+        <img src="IMG/dv.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        TheForce</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="index.php?action=sessions_disponibles">Sessions</a>
+            <a class="nav-item nav-link" href="index.php?action=liste_stagiaires">Stagiaires</a>
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Ajout
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="index.php?action=add_stagiaire">Ajout Stagiaire</a>
+                    <a class="dropdown-item" href="index.php?action=add_session">Ajout Session</a>
+                    <a class="dropdown-item" href="index.php?action=add_module">Ajout Module</a>
+                </div>
+            </li>    
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Programmation
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="index.php?action=add_module_to_session">Ajout d'un module à une session</a>
+                    <a class="dropdown-item" href="index.php?action=add_stagiaire_to_session">Ajout d'un stagiaire à une session</a>
+                </div>
+        </div>
     </div>
-  </div>
 </nav>

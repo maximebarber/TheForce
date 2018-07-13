@@ -15,6 +15,7 @@ abstract class Manager{
             $password = 'elanformation67';
             
             $this->db = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=UTF8;',$user,$password);
+            $this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
             $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             
         }
