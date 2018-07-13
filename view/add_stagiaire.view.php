@@ -53,7 +53,7 @@
 
         <div class="form-group col-md-2">
             <label for="inputZip">Téléphone</label>
-            <input minlength="10" maxlength="10" type="text" class="form-control" id="inputZip" name="telephoneStagiaire" placeholder="1234567890" required>
+            <input minlength="10" maxlength="10" type="text" class="form-control" id="inputZip" name="telephoneStagiaire" placeholder="0612345987" required>
         </div>
     </div>
 
