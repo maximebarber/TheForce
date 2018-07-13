@@ -87,7 +87,7 @@ function addStagiaire($data = null) {
         //->dans StagiaireManager
         
         //ERREUR SI PRENOM OU NOM OU VILLE COMPORTENT CARACTERES SPECIAUX OU NE FONT PAS LE BON NOMBRE DE CARACTERES
-        else if (!preg_match("#^[a-zéèàêâùïüëçA-Z'-]{3,20}$#", $_POST['prenomStagiaire'])) {
+        else if (!preg_match("#[a-zéèàêâùïüëçA-Z'-]{3,20}#", $_POST['prenomStagiaire'])) {
             
             $msg = 'Votre prénom ne doit comporter aucun caractère spécial et faire doit entre 3 et 20 caractères.';
             
@@ -122,7 +122,7 @@ function addStagiaire($data = null) {
         //AFFICHAGE MESSAGE SUCCES
         else if ($stagiaireManager->addStagiaire($prenomStagiaire, $nomStagiaire, $sexeStagiaire, $naissanceStagiaire, $villeStagiaire, $emailStagiaire, $telephoneStagiaire)) {
 
-            $msg = "Le stagiaire " . $prenomStagiaire . " a bien été ajouté.";
+            $msg = "Le stagiaire <h2>" . $prenomStagiaire . " " . $nomStagiaire . "</h2> a bien été ajouté.";
         } 
     }
 
