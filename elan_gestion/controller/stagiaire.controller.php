@@ -113,7 +113,7 @@ function addStagiaire($data = null) {
         } 
         
         //ERREUR SI L'EMAIL N'A PAS UN FORMAT VALIDE
-        else if (!preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['emailStagiaire'])) {
+        else if (!preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-zA-Z]{2,4}$#", $_POST['emailStagiaire'])) {
             
             $msg = 'Votre adresse e-mail doit être valide.';
             
