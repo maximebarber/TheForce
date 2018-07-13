@@ -175,4 +175,5 @@ else {
     require 'view/accueil.view.php';
 //modif
     //deux ligne gggggdf
+    //deux lignegergegregregregergregregr
 }
