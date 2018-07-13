@@ -80,8 +80,15 @@ function addModuleToSession($data = null){
         
         $sessionManager = new SessionManager();
         
+        //VERIFIER SI DUREE MODULE CORRECT
+        if ($_POST['dureeModule'] < 0 || $_POST['dureeModule'] > 20){
+            
+            $msg = "Veuillez saisir une durée de module compris entre 1 et 20";
+            
+        }
+        
         //AFFICHER MESSAGE SUCCES
-        if($sessionManager->addModuleToSession($idModule, $idSession, $dureeModule)){
+        else if($sessionManager->addModuleToSession($idModule, $idSession, $dureeModule)){
             
             $msg = "Le module a bien été ajouté à la session.";
         }
