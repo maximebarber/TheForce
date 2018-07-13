@@ -79,6 +79,17 @@ class SessionManager extends Manager {
     
     public function  addModule($nomModule, $idCategorie){
         
+        //VERIFIER SI L'INTITULE DU MODULE EXISTE DEJA DANS LA BDD
+        $check = "SELECT nom_module FROM MODULE WHERE nom_module = :nom";
+        $exists = $this->db->prepare($check);
+        $exists->execute(array('nom' => $nomModule));
+        
+        if ($exists->fetchColumn() === $intitule) {
+            echo 'Ce nom de module de session existe déjà.';
+        }
+        
+        else {
+        
         $stmt = "INSERT INTO MODULE (nom_module, id_categorie) 
                         VALUES (:nom_module, :id_categorie)";
         $req = $this->db->prepare($stmt);
@@ -86,6 +97,7 @@ class SessionManager extends Manager {
                                               ':id_categorie' => $idCategorie));
         return $req;
         
+        }
     }
     
     public function addModuleToSession($idModule, $idSession, $dureeModule) {
