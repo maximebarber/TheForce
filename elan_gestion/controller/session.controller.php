@@ -105,13 +105,20 @@ function addModule($data = null){
     
     if(isset($data)){
         
-        $nomModule = $data['nomModule'];
-        $idCategorie = $data['idCategorie']; 
+        $nomModule = e(capsLower($data['nomModule']));
+        $idCategorie = e($data['idCategorie']); 
         
         $sessionManager = new SessionManager();
         
+        //ERREUR SI INTITULE COMPORTE CARACTERES SPECIAUX OU NE FAIT PAS LE BON NOMBRE DE CARACTERES
+        if (!preg_match("#^[a-zéèàêâùïüëçA-Z]{3,50}$#", $_POST['nomModule'])) {
+            
+            $msg = 'L\'intitulé du module ne doit comporter aucun caractère spécial et doit faire entre 3 et 50 caractères.';
+            
+        } 
+        
         //AFFICHER MESSAGE SUCCES
-        if($sessionManager->addModule($nomModule, $idCategorie)){
+        else if($sessionManager->addModule($nomModule, $idCategorie)){
             
             $msg = "Le module a bien été ajouté.";
             
