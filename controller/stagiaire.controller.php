@@ -37,9 +37,15 @@ function addStagiaireToSession($data = null) {
         $idSession = $data['idSession'];
 
         $sessionManager = new StagiaireManager();
+        
+        //ERREUR SI CHAMP VIDE
+        if (empty($_POST['idStagiaire']) || empty($_POST['idSession'])) {
+
+            $msg = "Veuillez renseigner tous les champs.";
+        }
 
         //AFFICHER MESSAGE SUCCES
-        if ($sessionManager->addStagiaireToSession($idStagiaire, $idSession)) {
+        else if ($sessionManager->addStagiaireToSession($idStagiaire, $idSession)) {
 
             $msg = "Le module a bien été ajouté à la session.";
         }
