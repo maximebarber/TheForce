@@ -4,6 +4,8 @@
 
 <h3>Ajouter un stagiaire à une session</h3>
 
+<?php echo $msg; ?>
+
 <form method="POST" action="index.php?action=add_stagiaire_to_session">
 
     <div class="form-group col-md-12">
@@ -39,10 +41,4 @@
     <button type="submit" class="btn btn-default">Ajouter</button>
 
 </form>
-
-<?php
-
-echo $msg;
-
-?>
 

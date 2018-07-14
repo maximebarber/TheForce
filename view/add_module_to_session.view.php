@@ -4,6 +4,9 @@
 
 <h3>Ajouter un module à une session</h3>
 
+
+<?php echo $msg; ?>
+
 <form method="POST" action="index.php?action=add_module_to_session">
 
     <!-- comment -->
@@ -45,11 +48,5 @@
     <button type="submit" class="btn btn-default">Ajouter</button>
 
 </form>
-
-<?php
-
-echo $msg;
-
-?>
 
 

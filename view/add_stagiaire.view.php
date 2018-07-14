@@ -1,3 +1,5 @@
+<h3>Ajouter un stagiaire</h3>
+
 <?php echo $msg; ?>
 
 <form id="container" method="POST" action="index.php?action=add_stagiaire">
