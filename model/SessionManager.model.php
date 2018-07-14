@@ -109,7 +109,11 @@ class SessionManager extends Manager {
         } catch (PDOException $e) {
             if ($e->errorInfo[0] == '23000' && $e->errorInfo[1] == '1062') {
                echo 'Ce module a déjà été ajouté à cette session.';
-            } else {
+            } 
+            else if ($e->errorInfo[0] == '23000' && $e->errorInfo[1] == '1452'){
+                echo 'Veuillez saisir tous les champs.';
+            }
+            else {
                 throw $e;
             }
         }
