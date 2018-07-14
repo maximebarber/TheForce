@@ -77,9 +77,9 @@ function addModuleToSession($data = null) {
 
     if (isset($data)) {
 
-        $idModule = $data['idModule'];
-        $idSession = $data['idSession'];
-        $dureeModule = $data['dureeModule'];
+        $idModule = e($data['idModule']);
+        $idSession = e($data['idSession']);
+        $dureeModule = e($data['dureeModule']);
 
         $sessionManager = new SessionManager();
 
