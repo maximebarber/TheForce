@@ -39,7 +39,7 @@
 
     <div class="form-group col-md-3">
         <label for="dureeModule">Durée</label>
-        <input min="1" max="20" type="number" class="form-control" id="dureeModule" placeholder="Entre 1 et 20 jours" name="dureeModule">
+        <input min="1" max="20" type="number" class="form-control" id="dureeModule" placeholder="Entre 1 et 20 jours" name="dureeModule" required>
     </div>
 
     <button type="submit" class="btn btn-default">Ajouter</button>
