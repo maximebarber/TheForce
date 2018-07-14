@@ -98,7 +98,7 @@ class SessionManager extends Manager {
 
             //REQUETE A EFFECTUER POUR AJOUTER UN MODULE A UNE SESSION
             $stmt = "INSERT INTO session_module (id_module, id_session, duree_module)"
-                    . "VALUES (:id_module, :id_session, :duree_module)";
+                         . "VALUES (:id_module, :id_session, :duree_module)";
             $req = $this->db->prepare($stmt);
             $req->execute(array(':id_module' => $idModule,
                 ':id_session' => $idSession,
