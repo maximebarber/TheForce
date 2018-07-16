@@ -10,6 +10,7 @@
 require_once 'controller/session.controller.php';
 require_once 'controller/stagiaire.controller.php';
 require_once 'controller/categorie.controller.php';
+require_once 'controller/statistiques.controller.php';
 require_once 'functions.php';
 
 //AFFICHAGE BARRE DE NAVIGATION
@@ -164,8 +165,14 @@ if(isset($_GET['action'])){
                         
                         var_dump($_POST);
                         
-                        break;      
-                    
+                        break;     
+                        
+                    case 'statistiques':
+                        
+                        require 'view/statistiques.view.php';
+                        
+                        break;
+                      
                     default: getSessions();
                         
                 }
