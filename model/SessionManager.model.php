@@ -105,11 +105,13 @@ class SessionManager extends Manager {
                 ':duree_module' => $dureeModule));
             return $req;
             
-        //MESSAGE AFFICHER SI LE MODULE EXISTE DEJA DANS LA SESSION
         } catch (PDOException $e) {
+            //MESSAGE AFFICHER SI LE MODULE EXISTE DEJA DANS LA SESSION
             if ($e->errorInfo[0] == '23000' && $e->errorInfo[1] == '1062') {
                echo 'Ce module a déjà été ajouté à cette session.';
             } 
+            
+            //MESSAGE AFFICHER SI AUCUN ELEMENT SELECTIONNE DANS LA LISTE DEROULANTE
             else if ($e->errorInfo[0] == '23000' && $e->errorInfo[1] == '1452'){
                 echo 'Veuillez saisir tous les champs.';
             }
