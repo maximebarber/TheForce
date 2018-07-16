@@ -1,7 +1,7 @@
 
 
-<!-- AFFICHAGE STAGIAIRE DANS SESSION -->
-
+<!-- AFFICHAGE DE L'AJOUT D'UN STAGIAIRE DANS UNE SESSION -->
+<!-- AFFICHAGE DE LA PREMIER LISTE DEROULANTE AVEC TOUTES LES SESSIONS DISPONIBLES -->
 <h3>Ajouter un stagiaire à une session</h3>
 
 <?php echo $msg; ?>
@@ -23,6 +23,7 @@
         </select>
     </div>
 
+    <!-- AFFICHAGE DE LA DEUXIEME LISTE DEROULANTE AVEC TOUS LES STAGIARIRES INSCRITS -->
     <div class="form-group col-md-12">
         <label for="inputState">Stagiaire</label>
         <select id="inputState" class="form-control" name="idStagiaire">
@@ -31,7 +32,7 @@
             <?php
             while ($listeStagiaire = $listeStagiaires->fetch()) {
 
-                echo '<option value=' . $listeStagiaire["id_stagiaire"] . '>' . $listeStagiaire['prenom_stagiaire'] .' '. $listeStagiaire['nom_stagiaire']. '</option>';
+                echo '<option value=' . $listeStagiaire["id_stagiaire"] . '>' . $listeStagiaire['prenom_stagiaire'] .' '. $listeStagiaire['nom_stagiaire']. ' - '. $listeStagiaire['email_stagiaire'] . '</option>';
             }
             ?>
 
