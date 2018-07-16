@@ -27,18 +27,9 @@ form#container {
 
 /* ACCUEIL et SESSIONS DISPOIBLES (CARDS) */
 
-#cards {
-    display: flex;
-    justify-content: space-around;
-    margin: 5%;
-    flex-wrap: wrap;
-}
-
 #card {
     background-color: rgba(54, 162, 235, 0.6);
-    margin: 15px;
-    flex-basis: 40%;
-    max-width: 400px;
+    margin: 10px;
 }
 
 #card:hover {
