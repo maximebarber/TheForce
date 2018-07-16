@@ -17,6 +17,8 @@ function getProgrammeSession($idSession) {
     $sessionManager = new SessionManager();
     $intitules = $sessionManager->getIntitule($idSession);
     $modules = $sessionManager->getModules($idSession);
+    $stagiaireManager = new StagiaireManager();
+    $stagiaires = $stagiaireManager->getListeStagiairesSession($idSession);
     require 'view/programme_session.view.php';
 }
 

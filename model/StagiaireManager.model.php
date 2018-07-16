@@ -90,5 +90,14 @@ class StagiaireManager extends Manager {
         $req = $this->db->query($stmt);
         return $req;
     }
+    
+    public function getListeStagiairesSession($idSession) {
+        
+        $stmt = "select concat(`s`.`prenom_stagiaire`,' ',`s`.`nom_stagiaire`) AS `nom`,`s`.`email_stagiaire` AS `email` from (`maxime_elan_gestion`.`STAGIAIRE` `s` join `maxime_elan_gestion`.`session_stagiaire` `ss`) where ((`s`.`id_stagiaire` = `ss`.`id_stagiaire`) and (`ss`.`id_session` = :id_session)) order by `s`.`nom_stagiaire`";
+        $req = $this->db->prepare($stmt);
+        $req->execute(array(':id_session' => $idSession));
+        return $req;
+        
+    }
 
 }

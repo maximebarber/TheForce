@@ -5,7 +5,7 @@
 //
 $intitule = $intitules->fetch();
 
-echo $intitule['intitule_session'];
+echo '<h3>'.$intitule['intitule_session'].'</h3>';
 
 echo "<table class='table-striped table-light'>"
             . "<theader>"
@@ -21,10 +21,20 @@ while($module = $modules->fetch()){
       . "</tr>";
 }
 
+echo "</table><br>";
+
+echo '<h4>Liste des stagiaires inscrits à la session</h4>';
+
+//AFFICHAGE DE LA LISTE DES STAGIAIRES INSCRITS A LA SESSION
+while($stagiaire = $stagiaires->fetch()){
+    echo $stagiaire['nom'] . ' - ';
+    echo $stagiaire['email'] . '<br>';
+}
+
 $modules->closeCursor();
 $intitules->closeCursor();
+$stagiaires->closeCursor();
 
 
-echo "</table><br>";
 
 
