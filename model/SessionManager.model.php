@@ -36,7 +36,7 @@ class SessionManager extends Manager {
     public function getModules($idSession) {
 
 
-        $stmt = "select `m`.`nom_module` AS `nom_module`,`c`.`nom_categorie` AS `nom_categorie`,`sm`.`duree_module` AS `duree_module` from `maxime_elan_gestion`.`CATEGORIE` `c` join `maxime_elan_gestion`.`MODULE` `m` join `maxime_elan_gestion`.`session_module` `sm` where ((`c`.`id_categorie` = `m`.`id_categorie`) and (`sm`.`id_module` = `m`.`id_module`) and (`sm`.`id_session` = :id))";
+        $stmt = "select `m`.`nom_module` AS `nom_module`,`c`.`nom_categorie` AS `nom_categorie`,`sm`.`duree_module` AS `duree_module`, c.id_categorie from `maxime_elan_gestion`.`CATEGORIE` `c` join `maxime_elan_gestion`.`MODULE` `m` join `maxime_elan_gestion`.`session_module` `sm` where ((`c`.`id_categorie` = `m`.`id_categorie`) and (`sm`.`id_module` = `m`.`id_module`) and (`sm`.`id_session` = :id))";
         $req = $this->db->prepare($stmt);
         $req->execute(array(':id' => $idSession));
         return $req;
