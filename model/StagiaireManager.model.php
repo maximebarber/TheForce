@@ -28,7 +28,7 @@ class StagiaireManager extends Manager {
     public function getSessionsStagiaire($idStagiaire) {
 
 
-        $stmt = "select `ss`.`intitule_session` AS `intitule_session`,date_format(`ss`.`date_debut`, '%d.%m.%Y') AS `date_debut`,date_format(`ss`.`date_fin`,'%d.%m.%Y') AS `date_fin` from `maxime_elan_gestion`.`SESSION` `ss` join `maxime_elan_gestion`.`STAGIAIRE` `st` join `maxime_elan_gestion`.`session_stagiaire` `sst` where ((`ss`.`id_session` = `sst`.`id_session`) and (`st`.`id_stagiaire` = `sst`.`id_stagiaire`) and (`st`.`id_stagiaire` = :id))";
+        $stmt = "select `ss`.`intitule_session` AS `intitule_session`,date_format(`ss`.`date_debut`, '%d.%m.%Y') AS `date_debut`,date_format(`ss`.`date_fin`,'%d.%m.%Y') AS `date_fin`, ss.id_session from `maxime_elan_gestion`.`SESSION` `ss` join `maxime_elan_gestion`.`STAGIAIRE` `st` join `maxime_elan_gestion`.`session_stagiaire` `sst` where ((`ss`.`id_session` = `sst`.`id_session`) and (`st`.`id_stagiaire` = `sst`.`id_stagiaire`) and (`st`.`id_stagiaire` = :id))";
         $req = $this->db->prepare($stmt);
         $req->execute(array(':id' => $idStagiaire));
         return $req;
@@ -93,7 +93,7 @@ class StagiaireManager extends Manager {
     
     public function getListeStagiairesSession($idSession) {
         
-        $stmt = "select concat(`s`.`prenom_stagiaire`,' ',`s`.`nom_stagiaire`) AS `nom`,`s`.`email_stagiaire` AS `email` from (`maxime_elan_gestion`.`STAGIAIRE` `s` join `maxime_elan_gestion`.`session_stagiaire` `ss`) where ((`s`.`id_stagiaire` = `ss`.`id_stagiaire`) and (`ss`.`id_session` = :id_session)) order by `s`.`nom_stagiaire`";
+        $stmt = "select concat(`s`.`prenom_stagiaire`,' ',`s`.`nom_stagiaire`) AS `nom`,`s`.`email_stagiaire` AS `email`, s.id_stagiaire from (`maxime_elan_gestion`.`STAGIAIRE` `s` join `maxime_elan_gestion`.`session_stagiaire` `ss`) where ((`s`.`id_stagiaire` = `ss`.`id_stagiaire`) and (`ss`.`id_session` = :id_session)) order by `s`.`nom_stagiaire`";
         $req = $this->db->prepare($stmt);
         $req->execute(array(':id_session' => $idSession));
         return $req;

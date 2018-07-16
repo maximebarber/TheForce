@@ -33,8 +33,8 @@ function addStagiaireToSession($data = null) {
 
     if (isset($data)) {
 
-        $idStagiaire = $data['idStagiaire'];
-        $idSession = $data['idSession'];
+        $idStagiaire = e($data['idStagiaire']);
+        $idSession = e($data['idSession']);
 
         $sessionManager = new StagiaireManager();
         
@@ -47,7 +47,7 @@ function addStagiaireToSession($data = null) {
         //AFFICHER MESSAGE SUCCES
         else if ($sessionManager->addStagiaireToSession($idStagiaire, $idSession)) {
 
-            $msg = "Le module a bien été ajouté à la session.";
+            $msg = "Le stagiaire a bien été ajouté à la session.";
         }
     }
 
