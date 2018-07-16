@@ -15,7 +15,7 @@
         else $nb_places_reservees = 0;
         
         $nb_places_restantes = ($session['nb_places_theoriques']) - ($countStagiaire['countStagiaire']);
-
+        
         echo '<div class="card" style="width: 18rem;" id="card">
   <img class="card-img-top" src="' . $session["img_session"] . '" alt="study-img">
   <div class="card-body">
