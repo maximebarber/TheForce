@@ -21,11 +21,9 @@
   <div class="card-body">
     <h5 class="card-title">' . $session["intitule_session"] . '</h5>
         
-     <span class="badge badge-pill badge-primary"> ' . $session['nb_places_theoriques'] .'/'.$nb_places_reservees . '</span>
+     <span class="badge badge-pill badge-primary"> ' . $nb_places_reservees . '/' . $session['nb_places_theoriques'] .'</span>
          
     <p class="card-text">Du ' . $session["date_debut"] . ' au ' . $session['date_fin'] . '</p>
-    <p class="card-text">Nombre de places : ' . $session['nb_places_theoriques'] . '</p>
-    <p class="card-text">Nombre de places réservées : ' . $nb_places_reservees . '</p>
     <p class="card-text">Nombre de places restantes : ' . $nb_places_restantes . '</p>
     <a href=index.php?action=programme_session&amp;idSession=' . $session["id_session"] . ' class="btn btn-primary">Plus d\'infos</a>
   </div>
