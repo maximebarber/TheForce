@@ -38,7 +38,7 @@ echo "<table class='table-striped table-light'>"
 
 //AFFICHAGE DE LA LISTE DES STAGIAIRES INSCRITS A LA SESSION
 while ($stagiaire = $stagiaires->fetch()) {
-    echo "<tr><td>" . $stagiaire['nom'] . ' </td> ';
+    echo "<tr><td><a href='index.php?action=fiche_stagiaire&idStagiaire=".$stagiaire['id_stagiaire']."'>" . $stagiaire['nom'] . ' </a></td> ';
     echo "<td align='center'>" . $stagiaire['email'] . "</td></tr>";
 }
 
