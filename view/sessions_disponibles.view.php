@@ -19,12 +19,11 @@
         echo '<div class="card" style="width: 18rem;" id="card">
   <img class="card-img-top" src="' . $session["img_session"] . '" alt="study-img">
   <div class="card-body">
-    <h5 class="card-title">' . $session["intitule_session"] . '</h5>
-        
-     <span class="badge badge-pill badge-primary"> ' . $nb_places_reservees . '/' . $session['nb_places_theoriques'] .'</span>
+    <h5 class="card-title">' . $session["intitule_session"] . ' <span class="badge badge-pill badge-primary"> ' . $nb_places_reservees . '/' . $session['nb_places_theoriques'] .'</span></h5>  
          
-    <p class="card-text">Du ' . $session["date_debut"] . ' au ' . $session['date_fin'] . '</p>
-    <p class="card-text">Nombre de places restantes : ' . $nb_places_restantes . '</p>
+    <p class="card-text">Du <strong>' . $session["date_debut"] . '</strong> au <strong>' . $session['date_fin'] . '</strong></p>
+
+    <p class="card-text">Nombre de places restantes : <span class="badge badge-pill badge-primary">' . $nb_places_restantes . '</span>  </p>
     <a href=index.php?action=programme_session&amp;idSession=' . $session["id_session"] . ' class="btn btn-primary">Plus d\'infos</a>
   </div>
 </div>';
