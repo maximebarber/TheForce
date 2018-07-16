@@ -4,6 +4,9 @@
 
 <h3>Ajouter un module à une session</h3>
 
+
+<?php echo $msg; ?>
+
 <form method="POST" action="index.php?action=add_module_to_session">
 
     <!-- comment -->
@@ -39,17 +42,11 @@
 
     <div class="form-group col-md-3">
         <label for="dureeModule">Durée</label>
-        <input min="1" max="20" type="number" class="form-control" id="dureeModule" placeholder="Entre 1 et 20 jours" name="dureeModule">
+        <input min="1" max="20" type="number" class="form-control" id="dureeModule" placeholder="Entre 1 et 20 jours" name="dureeModule" required>
     </div>
 
     <button type="submit" class="btn btn-default">Ajouter</button>
 
 </form>
-
-<?php
-
-echo $msg;
-
-?>
 
 

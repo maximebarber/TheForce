@@ -7,11 +7,14 @@ function e($value){
 
 //FONCTION QUI PERMET DE TOUT METTRE EN MINUSCULES SAUF LA PREMIERE LETTRE
 function capsLower($value){
-    $firstCap = mb_strtoupper(mb_substr($value, 0, 1));
-    return $firstCap.mb_substr(mb_strtolower($value), 1);
+
+      return mb_convert_case($value, MB_CASE_TITLE, "UTF-8");
+
 }
 
 //FONCTION QUI PERMET DE TOUT METTRE EN MAJUSCULES
 function capsUpper($value){
-    return mb_strtoupper($value);
+
+      return mb_convert_case($value, MB_CASE_UPPER, "UTF-8");
+      
 }

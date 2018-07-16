@@ -1,3 +1,5 @@
+<h3>Ajouter un module</h3>
+
 <form method="POST" action="index.php?action=add_module">
     <p><?php echo $msg;?></p>
   <div class="form-row">
@@ -14,6 +16,7 @@
         
         <?php
         
+        //AFFICHER LES CATEGORIES SOUS FORME DE LISTE DEROULANTE
         while($categorie = $categories->fetch()){
         
             echo "<option value='" . $categorie['id_categorie'] . "'>".$categorie['nom_categorie']."</option>";

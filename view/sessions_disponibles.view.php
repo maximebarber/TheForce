@@ -1,39 +1,8 @@
-<!-- 
-<table class="table table-striped table-light">
-            <thead>
-                <th>INTITULÉ SESSION</th>
-                <th>DATE DE DÉBUT</th>
-                <th>DATE DE FIN</th>
-                <th>NOMBRES DE PLACES THÉORIQUES</th>
-                <th>NOMBRES DE PLACES RÉSERVÉES</th>
-                <th>NOMBRES DE PLACES RESTANTES</th>
-                <th>DÉTAILS PROGRAMME</th>
-            </thead>
-
- while ($session = $sessions->fetch()){
-    
-    $nb_places_restantes = ($session['nb_places_theoriques'])-($session['nb_places_reservees']);
-    
-    echo '<tr>';
-    //[NOM DU CHAMP DANS LA BDD]
-    echo '<td>'.$session['intitule_session'].'</td>';
-    echo '<td>'.$session['date_debut'].'</td>';
-    echo '<td>'.$session['date_fin'].'</td>';
-    echo '<td>'.$session['nb_places_theoriques'].'</td>';
-    echo '<td>'.$session['nb_places_reservees'].'</td>';
-    echo '<td>'.$nb_places_restantes.'</td>';
-    echo "<td><a href=index.php?action=programme_session&amp;idSession={$session['id_session']}>PLUS D'INFOS</a></td>";
-    
-    echo '</tr>';
-    
-}
-
-echo '</table>';
--->
-
 <div id="cards">
 
     <?php
+    
+    //TANT QU'IL Y A DES SESSIONS ON LES AFFICHE SOUS FORME DE CARTES
     while ($session = $sessions->fetch()) {
         
         $countStagiaire = $countStagiaires->fetch();
@@ -51,6 +20,9 @@ echo '</table>';
   <img class="card-img-top" src="' . $session["img_session"] . '" alt="study-img">
   <div class="card-body">
     <h5 class="card-title">' . $session["intitule_session"] . '</h5>
+        
+     <span class="badge badge-pill badge-primary"> ' . $session['nb_places_theoriques'] .'/'.$nb_places_reservees . '</span>
+         
     <p class="card-text">Du ' . $session["date_debut"] . ' au ' . $session['date_fin'] . '</p>
     <p class="card-text">Nombre de places : ' . $session['nb_places_theoriques'] . '</p>
     <p class="card-text">Nombre de places réservées : ' . $nb_places_reservees . '</p>

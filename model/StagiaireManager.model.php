@@ -40,12 +40,10 @@ class StagiaireManager extends Manager {
         $check = "SELECT email_stagiaire FROM STAGIAIRE WHERE email_stagiaire = :email";
         $exists = $this->db->prepare($check);
         $exists->execute(array('email' => $emailStagiaire));
-        
+
         if ($exists->fetchColumn() === $emailStagiaire) {
             echo 'Cet e-mail existe déjà.';
-        }
-
-        else {
+        } else {
 
             $stmt = "INSERT INTO STAGIAIRE(prenom_stagiaire, nom_stagiaire, sexe_stagiaire, naissance_stagiaire, ville_stagiaire, email_stagiaire, telephone_stagiaire) 
                         VALUES (:prenom_stagiaire, :nom_stagiaire, :sexe_stagiaire, :naissance_stagiaire, :ville_stagiaire, :email_stagiaire, :telephone_stagiaire)";
@@ -62,12 +60,29 @@ class StagiaireManager extends Manager {
     }
 
     public function addStagiaireToSession($idStagiaire, $idSession) {
-        $stmt = "INSERT INTO session_stagiaire (id_stagiaire, id_session)"
-                . "VALUES (:id_stagiaire, :id_session)";
-        $req = $this->db->prepare($stmt);
-        $req->execute(array(':id_stagiaire' => $idStagiaire,
-            ':id_session' => $idSession));
-        return $req;
+
+        try {
+
+            //REQUETE A EFFECTUER POUR AJOUTER UN STAGIAIRE A UNE SESSION
+            $stmt = "INSERT INTO session_stagiaire (id_stagiaire, id_session)"
+                    . "VALUES (:id_stagiaire, :id_session)";
+            $req = $this->db->prepare($stmt);
+            $req->execute(array(':id_stagiaire' => $idStagiaire,
+                ':id_session' => $idSession));
+            return $req;
+            
+        //MESSAGE AFFICHER SI LE STAGIAIRE EXISTE DEJA DANS LA SESSION            
+        } catch (PDOException $e) {
+            if ($e->errorInfo[0] == '23000' && $e->errorInfo[1] == '1062') {
+                echo 'Ce stagiaire a déjà été ajouté à cette session.';
+            } 
+            else if ($e->errorInfo[0] == '23000' && $e->errorInfo[1] == '1452'){
+                echo 'Veuillez saisir tous les champs.';
+            }
+            else {
+                throw $e;
+            }
+        }
     }
 
     public function getListeStagiaires() {

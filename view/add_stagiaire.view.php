@@ -1,3 +1,5 @@
+<h3>Ajouter un stagiaire</h3>
+
 <?php echo $msg; ?>
 
 <form id="container" method="POST" action="index.php?action=add_stagiaire">
@@ -53,7 +55,7 @@
 
         <div class="form-group col-md-2">
             <label for="inputZip">Téléphone</label>
-            <input minlength="10" maxlength="10" type="text" class="form-control" id="inputZip" name="telephoneStagiaire" placeholder="1234567890" required>
+            <input minlength="10" maxlength="10" type="text" class="form-control" id="inputZip" name="telephoneStagiaire" placeholder="0612345987" required>
         </div>
     </div>
 

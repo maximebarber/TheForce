@@ -1,3 +1,5 @@
+<h3>Ajouter une session</h3>
+
 <!-- AFFICHAGE MESSAGE SUCCES/ERREUR -->
 <?php echo $msg ?>
 
