@@ -19,7 +19,7 @@ class StagiaireManager extends Manager {
     public function getInfosStagiaire($idStagiaire) {
 
 
-        $stmt = "select concat(`s`.`prenom_stagiaire`,' ',`s`.`nom_stagiaire`) AS `nom`,`s`.`sexe_stagiaire` AS `sexe_stagiaire`,`s`.`naissance_stagiaire` AS `naissance_stagiaire`,`s`.`ville_stagiaire` AS `ville_stagiaire`,`s`.`email_stagiaire` AS `email_stagiaire`,`s`.`telephone_stagiaire` AS `telephone_stagiaire` from `maxime_elan_gestion`.`STAGIAIRE` `s` where (`s`.`id_stagiaire` = :id)";
+        $stmt = "select concat(`s`.`prenom_stagiaire`,' ',`s`.`nom_stagiaire`) AS `nom`,`s`.`sexe_stagiaire` AS `sexe_stagiaire`,date_format(`s`.`naissance_stagiaire`,'%d.%m.%Y') AS `naissance_stagiaire`,`s`.`ville_stagiaire` AS `ville_stagiaire`,`s`.`email_stagiaire` AS `email_stagiaire`,`s`.`telephone_stagiaire` AS `telephone_stagiaire` from `maxime_elan_gestion`.`STAGIAIRE` `s` where (`s`.`id_stagiaire` = :id)";
         $req = $this->db->prepare($stmt);
         $req->execute(array(':id' => $idStagiaire));
         return $req;
