@@ -28,7 +28,7 @@ class StagiaireManager extends Manager {
     public function getSessionsStagiaire($idStagiaire) {
 
 
-        $stmt = "select `ss`.`intitule_session` AS `intitule_session`,date_format(`ss`.`date_debut`, '%d.%m.%Y') AS `date_debut`,date_format(`ss`.`date_fin`,'%d.%m.%Y') AS `date_fin` from `maxime_elan_gestion`.`SESSION` `ss` join `maxime_elan_gestion`.`STAGIAIRE` `st` join `maxime_elan_gestion`.`session_stagiaire` `sst` where ((`ss`.`id_session` = `sst`.`id_session`) and (`st`.`id_stagiaire` = `sst`.`id_stagiaire`) and (`st`.`id_stagiaire` = :id))";
+        $stmt = "select `ss`.`intitule_session` AS `intitule_session`,date_format(`ss`.`date_debut`, '%d.%m.%Y') AS `date_debut`,date_format(`ss`.`date_fin`,'%d.%m.%Y') AS `date_fin`, ss.id_session from `maxime_elan_gestion`.`SESSION` `ss` join `maxime_elan_gestion`.`STAGIAIRE` `st` join `maxime_elan_gestion`.`session_stagiaire` `sst` where ((`ss`.`id_session` = `sst`.`id_session`) and (`st`.`id_stagiaire` = `sst`.`id_stagiaire`) and (`st`.`id_stagiaire` = :id))";
         $req = $this->db->prepare($stmt);
         $req->execute(array(':id' => $idStagiaire));
         return $req;

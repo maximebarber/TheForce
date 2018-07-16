@@ -34,7 +34,7 @@ echo "<table class='table-striped table-light'>"
 
 while ($sessionStagiaire = $sessionsStagiaire->fetch()){
     
-      echo "<tr><td>" . $sessionStagiaire['intitule_session'] . "</td>";
+      echo "<tr><td><a href='index.php?action=programme_session&idSession=".$sessionStagiaire['id_session']."'>" . $sessionStagiaire['intitule_session'] . "</a></td>";
       echo "<td>" . $sessionStagiaire['date_debut'] . "</td>";
       echo "<td>" . $sessionStagiaire['date_fin'] . "</td></tr>";
       
