@@ -42,3 +42,16 @@ form#container {
     text-decoration: none;
     color: white;
 }
+
+/* STATS */
+
+#charts{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+#container {
+    height: 500px !important;
+}

@@ -1,13 +1,12 @@
-<!DOCTYPE html>         
+<!DOCTYPE html>
 <div id="cards">
 <p> TheForce est une Application développé </br>chez ELAN Formation pour </br>la Gestion de Stagiaires. </br>Cette Aplication à nous jours </br>fait parti de logiciels qui sont utilisées </br>par le personnel administrative.</p>
     <div class="card text-white mb-3" style="max-width: 18rem;" id="card">
-          <img class="card-img-top" src="
-https://media.licdn.com/dms/image/C5603AQHPqCW-WIuclg/profile-displayphoto-shrink_200_200/0?e=1537401600&v=beta&t=WLDH8Nr1zJ_A2Q2bSnS2PFJ4-IQwY9qAUjJ7kiqppwQ" alt="study-img">
-        
+          <img class="card-img-top" src="https://media.licdn.com/dms/image/C5603AQHPqCW-WIuclg/profile-displayphoto-shrink_200_200/0?e=1537401600&v=beta&t=WLDH8Nr1zJ_A2Q2bSnS2PFJ4-IQwY9qAUjJ7kiqppwQ" alt="study-img">
+
           <!--<img class="card-img-top" src="https://media.licdn.com/dms/image/C5603AQHPqCW-WIuclg/profile-displayphoto-shrink_800_800/0?e=1537401600&v=beta&t=2RM-RSAoHlT4WYr7SUPaaIJY8ABOLjVddB4HaF2_YAA" alt="study-img">
            -->
-          
+
           <a href="https://fr.linkedin.com/in/maxime-barber-b1217b152" id="a-card" target="_blank">
             <div class="card-header">Max</div>
             <div class="card-body">
@@ -28,5 +27,5 @@ https://media.licdn.com/dms/image/C5603AQHPqCW-WIuclg/profile-displayphoto-shrin
 
 
 </div>
-     
+
 </HTML>
