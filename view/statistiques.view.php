@@ -1,4 +1,4 @@
-<h2>A venir très prochainement été 2023.</h2>
+<h3>Statistiques</h3>
 
 <?php while($statsCategorie = $statsCategories->fetch()){
  
@@ -8,19 +8,6 @@
         $data[] = array($nom=> $count);
  
 }; 
-
-print json_encode(array_values($data[0]));
-print json_encode(array_keys($data[0]));
-echo '<br>';
-$lol = json_encode($data);
-print $lol;
-
-/*$data = array();
-foreach ($statsCategories as $statsCategorie){
-    $data[] = $statsCategorie;
-}
-
-print json_encode($data);*/
 
 ?>
 
@@ -32,7 +19,7 @@ print json_encode($data);*/
 
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'pie',
     data: {
         labels: 
         
@@ -45,7 +32,7 @@ var myChart = new Chart(ctx, {
         }
         ?>],
         datasets: [{
-            label: '# of Votes',
+            label: 'Nombre de modules par catégorie',
             data: [
                 
             //ON BOUCLE SUR LE NOMBRE DE MODULES DANS CHAQUE CATEGORIE
