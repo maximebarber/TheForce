@@ -41,4 +41,4 @@ var marker=L.marker(strasbourg).addTo(map);
  * avec le contenu qu'on veut afficher, en format HTML
  */
 
-marker.bindPopup('<h3> Strasbourg, FRANCE </h3>');
+marker.bindPopup('<h3> TheForce, Strasbourg</h3>');
