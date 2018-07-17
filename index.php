@@ -69,26 +69,7 @@ if(isset($_GET['action'])){
                         var_dump($_POST);
                         
                         break;
-                    
-                    /*case 'insert_stagiaire': 
-                        //@TODO insert into front controller
-
-                        if(!empty($_POST['prenomStagiaire']) && !empty($_POST['nomStagiaire']) && !empty($_POST['sexeStagiaire']) && !empty($_POST['naissanceStagiaire']) && !empty($_POST['villeStagiaire']) && !empty($_POST['emailStagiaire']) && !empty($_POST['telephoneStagiaire'])){
-                            
-                            $p = e(ucfirst(strtolower($_POST['prenomStagiaire'])));
-                            $nm = e(ucfirst(strtolower($_POST['nomStagiaire'])));
-                            $s = e($_POST['sexeStagiaire']);
-                            $n = e($_POST['naissanceStagiaire']);
-                            $v = e(ucfirst(strtolower($_POST['villeStagiaire'])));
-                            $e = e($_POST['emailStagiaire']);
-                            $t = e($_POST['telephoneStagiaire']);
-                            
-                            addStagiaire($p,$nm,$s,$n,$v,$e,$t);
-                            
-                        }
-                            
-                            break;*/                
-                    
+  
                     case 'add_session': 
                         
                         if(!empty($_POST)){
@@ -177,7 +158,7 @@ if(isset($_GET['action'])){
                         
                     case 'statistiques':
                         
-                        require 'view/statistiques.view.php';
+                        getStatsCategories(); break;
                         
                         break;
                       
@@ -186,7 +167,7 @@ if(isset($_GET['action'])){
                 }
 }
 else {
+    
     require 'view/accueil.view.php';
-//modif
-    //deux ligne
+
 }

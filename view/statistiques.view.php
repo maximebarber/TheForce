@@ -1,17 +1,17 @@
 <h2>A venir très prochainement été 2023.</h2>
 
-<div class="chart-container" style="position: relative; height:20vh; width:40vw">
+<?php while($statsCategorie = $statsCategories->fetch()){
+ 
+        echo 'olo';
+ 
+}; ?>
+
+ <div class="chart-container" style="position: relative; height:20vh; width:40vw">
     <canvas id="myChart" width="400" height="400"></canvas>
 </div>
 
 <script>
 
-<?php while($statsCategorie = $statsCategories->fetch()){
-    
-    
-    
-}; ?>
-    
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
