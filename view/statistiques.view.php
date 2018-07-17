@@ -10,6 +10,7 @@
 }; 
 
 print json_encode(array_values($data[0]));
+print json_encode(array_keys($data[0]));
 echo '<br>';
 $lol = json_encode($data);
 print $lol;
@@ -28,28 +29,34 @@ print json_encode($data);*/
 </div>
 
 <script>
-    
-/*$(document).ready(function(){
-    $.ajax({
-        url: "http://sites.elannet.info/stasta/maxime/TheForce/index.php?action=statistiques",
-        method: "GET",
-        succes: function(lol){
-            console.log(lol);
-        },
-        error: function(lol){
-            console.log(lol);
-        }
-    });
-});*/
 
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: 
+        
+        //BOUCLE SUR LES NOMS DE CHAQUE CATEGORIE PRESENTS DANS LA BDD
+        [<?php for($i = 0; $i<count($data); $i++){
+            
+            echo json_encode(array_keys($data[$i]));
+            echo ',';
+            
+        }
+        ?>],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [
+                
+            //ON BOUCLE SUR LE NOMBRE DE MODULES DANS CHAQUE CATEGORIE
+            <?php for($i = 0; $i<count($data); $i++){
+            
+            echo json_encode(array_values($data[$i]));
+            echo ',';
+            
+            }
+            ?>
+            ],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
