@@ -2,15 +2,45 @@
 
 <?php while($statsCategorie = $statsCategories->fetch()){
  
-        echo 'olo';
+        $nom = ($statsCategorie['nom_categorie']);
+        $count = ($statsCategorie['count']);
+        
+        $data[] = array($nom=> $count);
  
-}; ?>
+}; 
+
+print json_encode(array_values($data[0]));
+echo '<br>';
+$lol = json_encode($data);
+print $lol;
+
+/*$data = array();
+foreach ($statsCategories as $statsCategorie){
+    $data[] = $statsCategorie;
+}
+
+print json_encode($data);*/
+
+?>
 
  <div class="chart-container" style="position: relative; height:20vh; width:40vw">
     <canvas id="myChart" width="400" height="400"></canvas>
 </div>
 
 <script>
+    
+/*$(document).ready(function(){
+    $.ajax({
+        url: "http://sites.elannet.info/stasta/maxime/TheForce/index.php?action=statistiques",
+        method: "GET",
+        succes: function(lol){
+            console.log(lol);
+        },
+        error: function(lol){
+            console.log(lol);
+        }
+    });
+});*/
 
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
