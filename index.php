@@ -26,17 +26,17 @@ require_once 'functions.php';
 require 'view/navbar.view.html';
 
 if(isset($_GET['action'])){
-            
+
                 switch ($_GET['action']){
-                    
+
                     case 'accueil': require 'view/accueil.view.php'; break;
-                    
+
                     case 'TheForce': require 'view/TheForce.view.php'; break;
 
                     case 'sessions_disponibles': getSessions(); break;
-                    
+
                     case 'liste_stagiaires': getStagiaires(); break;
-                    
+
                     case 'programme_session':
 
                         $idSession = $_GET['idSession'];
@@ -44,53 +44,53 @@ if(isset($_GET['action'])){
                         getProgrammeSession($idSession);
 
                         break;
-                    
+
                     case 'fiche_stagiaire':
 
                         $idStagiaire = $_GET['idStagiaire'];
 
                         getFicheStagiaire($idStagiaire);
-                        
+
                         break;
-                    
-                    case 'add_stagiaire': 
-                        
-                        if(!empty($_POST)){                            
-                            
-                            addStagiaire($_POST);  
-                            
-                        }
-                        
-                        else {
-                            
-                            addStagiaire();
-                            
-                        }
-                        
-                        var_dump($_POST);
-                        
-                        break;
-  
-                    case 'add_session': 
-                        
+
+                    case 'add_stagiaire':
+
                         if(!empty($_POST)){
-                            
+
+                            addStagiaire($_POST);
+
+                        }
+
+                        else {
+
+                            addStagiaire();
+
+                        }
+
+                        var_dump($_POST);
+
+                        break;
+
+                    case 'add_session':
+
+                        if(!empty($_POST)){
+
                             //DEBUT AJOUT IMAGE BDD
-                            
+
                             /*if(isset($_POST['submit'])){
                                 $file = $_FILES['img'];
-                                
+
                                 $fileName = $_FILES['img']['name'];
                                 $fileTmpName = $_FILES['img']['tmp_name'];
                                 $fileSize = $_FILES['img']['size'];
                                 $fileError = $_FILES['img']['error'];
                                 $fileType = $_FILES['img']['type'];
-                                
+
                                 $fileExt = explode('.', $fileName);
                                 $fileActualExt = strtolower(end($fileExt));
-                                
+
                                 $allowed = array('jpg', 'jpeg', 'png');
-                                
+
                                 if(in_array($fileActualExt, $allowed)){
                                     if ($fileError === 0){
                                         if($fileSize < 5000000){
@@ -106,69 +106,75 @@ if(isset($_GET['action'])){
                                 } else {
                                     echo 'Fichier non supporté.';
                                 }
-                                
+
                             }*/
-                            
-                            //FIN AJOUT IMAGE BDD    
-                            
-                                                        
-                            addSession($_POST);  
-                            
+
+                            //FIN AJOUT IMAGE BDD
+
+
+                            addSession($_POST);
+
                         }
-                        
+
                         else {
-                            
+
                             addSession();
-                            
+
                         }
-                        
+
                         var_dump($_POST);
-                        
-                        break;             
-                        
-                    case 'add_module':
-                        
-                        if(!empty($_POST)){
-                            addModule($_POST);  
-                        }
-                        else addModule();                         
-                        
-                        break;      
-                        
-                    case 'add_module_to_session':
-                        
-                        if(!empty($_POST)){
-                            addModuleToSession($_POST);  
-                        }
-                        else addModuleToSession();  
-                        
-                        var_dump($_POST);
-                        
-                        break;     
-                        
-                    case 'add_stagiaire_to_session':
-                        
-                        if(!empty($_POST)){
-                            addStagiaireToSession($_POST);  
-                        }
-                        else addStagiaireToSession();  
-                        
-                        var_dump($_POST);
-                        
-                        break;     
-                        
-                    case 'statistiques':
-                        
-                        getStatsCategories(); break;
-                        
+
                         break;
-                      
+
+                    case 'add_module':
+
+                        if(!empty($_POST)){
+                            addModule($_POST);
+                        }
+                        else addModule();
+
+                        break;
+
+                    case 'add_module_to_session':
+
+                        if(!empty($_POST)){
+                            addModuleToSession($_POST);
+                        }
+                        else addModuleToSession();
+
+                        var_dump($_POST);
+
+                        break;
+
+                    case 'add_stagiaire_to_session':
+
+                        if(!empty($_POST)){
+                            addStagiaireToSession($_POST);
+                        }
+                        else addStagiaireToSession();
+
+                        var_dump($_POST);
+
+                        break;
+
+                    case 'statistiques':
+
+                        getStatsCategories(); break;
+
+                        break;
+
+                    case 'leaflet':
+
+                        require 'view/leaflet.view.php';
+
+                        break;
+
                     default: getSessions();
-                        
+
                 }
 }
 else {
-    
+
     require 'view/accueil.view.php';
 
 }
