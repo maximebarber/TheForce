@@ -55,3 +55,9 @@ form#container {
 #container {
     height: 500px !important;
 }
+/* LEAFLET */
+
+#map{
+    width: 100%;
+    height: 100vh;
+}
