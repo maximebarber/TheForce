@@ -88,6 +88,9 @@ var myChartCat = new Chart(ctxCat, {
         }]
     },
     options: {
+        legend: {
+            display: false,
+        },
         title: {
           display: true,
           text: 'Nombre de modules par catégorie'
