@@ -2,7 +2,7 @@
 
 #img-accueil {
     background-size: cover;
-    width: 100vw
+    width: 100vw;
 }
 
 #TheForce {
@@ -22,7 +22,7 @@ form {
 
 form#container {
     max-width: 800px;
-    margin: 10% auto
+    margin: 10% auto;
 }
 
 /* ACCUEIL et SESSIONS DISPOIBLES (CARDS) */
