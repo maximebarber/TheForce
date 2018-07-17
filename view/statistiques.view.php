@@ -24,10 +24,10 @@ while($statsSexe = $statsSexes->fetch()){
 
 ?>
 
-<div class="charts">
+<div id="charts">
 
 <!--AFFICHAGE DU CHART NB MODULES PAR CATEGORIE-->
- <div class="chart-container" style="position: relative; height:20vh; width:40vw">
+ <div class="chart-container" id="container" style="position: relative; height:20vh; width:40vw">
     <canvas id="myChartCat" width="400" height="400"></canvas>
 </div>
 
@@ -43,7 +43,7 @@ while($statsSexe = $statsSexes->fetch()){
 //AFFICHAGE STATS CATEGORIES
 var ctxCat = document.getElementById("myChartCat").getContext('2d');
 var myChartCat = new Chart(ctxCat, {
-    type: 'pie',
+    type: 'bar',
     data: {
         labels:
 
@@ -88,6 +88,10 @@ var myChartCat = new Chart(ctxCat, {
         }]
     },
     options: {
+        title: {
+          display: true,
+          text: 'Nombre de modules par catégorie'
+        },
         scales: {
             yAxes: [{
                 ticks: {
@@ -114,7 +118,7 @@ var myChartSexe = new Chart(ctxSexe, {
         }
         ?>],
         datasets: [{
-            label: 'Nombre de modules par catégorie',
+            label: 'Nombre d\'hommes et de femmes',
             data: [
 
             //ON BOUCLE SUR LE NOMBRE DE MODULES DANS CHAQUE CATEGORIE
@@ -146,6 +150,10 @@ var myChartSexe = new Chart(ctxSexe, {
         }]
     },
     options: {
+        title: {
+          display: true,
+          text: 'Répartition des hommes et des femmes'
+        },
         scales: {
             yAxes: [{
                 ticks: {
